@@ -21,7 +21,8 @@ public class User implements UserDetails {
     private String userName;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
+
     private Set<Role> roleSet;
 
     public User() {
@@ -37,6 +38,7 @@ public class User implements UserDetails {
         this.userName = userName;
         this.password = password;
     }
+
     public Long getId() {
         return id;
     }
@@ -44,6 +46,7 @@ public class User implements UserDetails {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
