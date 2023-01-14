@@ -1,6 +1,5 @@
 package ru.kata.spring.boot_security.demo.models;
 
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +21,6 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
-
     private Set<Role> roleSet;
 
     public User() {

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -32,24 +31,5 @@ public class UserController {
         model.addAttribute("activeUser", activeUser);
         model.addAttribute("roles", activeUser.getRoleSet());
         return "admin";
-    }
-
-    @PostMapping(value = "/deleteUser/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
-        userService.delete(id);
-        return "redirect:/admin";
-    }
-
-
-    @PostMapping(value = "/updateUser")
-    public String updateUser(@ModelAttribute("user") User user, @RequestParam ArrayList<String> listRoleId) {
-        userService.update(user, listRoleId);
-        return "redirect:/admin";
-    }
-
-    @PostMapping(value = "/createUser")
-    public String createUser(@ModelAttribute("user") User user, @RequestParam ArrayList<String> listRoleId) {
-        userService.create(user, listRoleId);
-        return "redirect:/admin";
     }
 }
